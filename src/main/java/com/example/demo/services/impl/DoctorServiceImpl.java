@@ -1,6 +1,7 @@
 package com.example.demo.services.impl;
 
 import com.example.demo.models.Doctor;
+import com.example.demo.models.Patient;
 import com.example.demo.repositories.DoctorRepository;
 import com.example.demo.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;

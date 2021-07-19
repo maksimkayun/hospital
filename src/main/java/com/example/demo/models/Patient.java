@@ -14,13 +14,26 @@ public class Patient {
     private String name;
     @Column(name = "registration_date")
     private Date registrationDate = new Date();
-    @Column(name = "diagnosis", length = 50, nullable = true)
-    private String diagnosis;
     @Column(name = "discharge_date", nullable = true)
     private Date dischargeDate;
 
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
     @ManyToOne
-    public Doctor doctor;
+    private Doctor doctor;
+
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    @ManyToOne
+    private Diagnosis diagnosis;
 
     public Patient(String name, Doctor doctor) {
         this.name = name;
@@ -63,14 +76,6 @@ public class Patient {
                 ", dischargeDate=" + dischargeDate +
                 ", diagnosis=" + diagnosis +
                 '}';
-    }
-
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
     }
 
     public Date getDischargeDate() {

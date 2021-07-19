@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.models.Diagnosis;
 import com.example.demo.models.Doctor;
 import com.example.demo.models.Patient;
 
@@ -11,12 +12,14 @@ public interface PatientService {
 
     void discharge(Patient patient);
 
-    void setDiagnosis(Patient patient, String diagnosis);
+    void setDiagnosis(Patient patient, Diagnosis diagnosis);
 
     void discharge(int id);
 
     Patient findPatient(int id);
 
     List<Patient> findByDoctor(Doctor doctor);
+
+    List<Patient> findByDiagnosis(Diagnosis diagnosis);
 }
 

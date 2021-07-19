@@ -1,5 +1,6 @@
 package com.example.demo.services.impl;
 
+import com.example.demo.models.Diagnosis;
 import com.example.demo.models.Doctor;
 import com.example.demo.models.Patient;
 import com.example.demo.repositories.PatientRepository;
@@ -29,7 +30,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void setDiagnosis(Patient patient, String diagnosis) {
+    public void setDiagnosis(Patient patient, Diagnosis diagnosis) {
         patientRepository.findById(patient.getId()).get().setDiagnosis(diagnosis);
     }
 
@@ -46,6 +47,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<Patient> findByDoctor(Doctor doctor) {
         return patientRepository.findByDoctor(doctor);
+    }
+
+    @Override
+    public List<Patient> findByDiagnosis(Diagnosis diagnosis) {
+        return patientRepository.findByDiagnosis(diagnosis);
     }
 }
 
