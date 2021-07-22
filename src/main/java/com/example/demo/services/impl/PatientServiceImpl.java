@@ -29,6 +29,7 @@ public class PatientServiceImpl implements PatientService {
         patientRepository.findById(patient.getId()).get().setDischargeDate(new Date());
     }
 
+    //...
     @Override
     public void setDiagnosis(Patient patient, Diagnosis diagnosis) {
         patientRepository.findById(patient.getId()).get().setDiagnosis(diagnosis);
@@ -43,7 +44,7 @@ public class PatientServiceImpl implements PatientService {
     public Patient findPatient(int id) {
         return patientRepository.findById(id).get();
     }
-
+    //...
     @Override
     public List<Patient> findByDoctor(Doctor doctor) {
         return patientRepository.findByDoctor(doctor);
@@ -52,6 +53,16 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<Patient> findByDiagnosis(Diagnosis diagnosis) {
         return patientRepository.findByDiagnosis(diagnosis);
+    }
+
+    @Override
+    public List<Patient> findByDoctorAndDischargeDateIsNull(Doctor doctor) {
+        return patientRepository.findByDoctorAndDischargeDateIsNull(doctor);
+    }
+
+    @Override
+    public List<Patient> findByDoctorAndDischargeDateNotNull(Doctor doctor) {
+        return patientRepository.findByDoctorAndDischargeDateNotNull(doctor);
     }
 }
 

@@ -21,5 +21,9 @@ public interface PatientService {
     List<Patient> findByDoctor(Doctor doctor);
 
     List<Patient> findByDiagnosis(Diagnosis diagnosis);
+
+    List<Patient> findByDoctorAndDischargeDateIsNull(Doctor doctor);
+
+    List<Patient> findByDoctorAndDischargeDateNotNull(Doctor doctor);
 }
 

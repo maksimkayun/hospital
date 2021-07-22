@@ -28,12 +28,20 @@ public class Patient {
     @ManyToOne
     private Doctor doctor;
 
+
     public void setDiagnosis(Diagnosis diagnosis) {
         this.diagnosis = diagnosis;
     }
 
+    //...
     @ManyToOne
     private Diagnosis diagnosis;
+
+    public void setDischargeDate(Date dischargeDate) {
+        this.dischargeDate = dischargeDate;
+    }
+    //...
+
 
     public Patient(String name, Doctor doctor) {
         this.name = name;
@@ -82,8 +90,6 @@ public class Patient {
         return dischargeDate;
     }
 
-    public void setDischargeDate(Date dischargeDate) {
-        this.dischargeDate = dischargeDate;
-    }
+
 
 }
