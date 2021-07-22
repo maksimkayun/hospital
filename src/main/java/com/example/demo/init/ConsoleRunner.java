@@ -21,7 +21,7 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Doctor d_1 = new Doctor("Michael");
+        /*Doctor d_1 = new Doctor("Michael");
         Doctor d_2 = new Doctor("Rudolf");
 
         // нанимаем докторов
@@ -64,6 +64,6 @@ public class ConsoleRunner implements CommandLineRunner {
 
         for (Patient patient: patientService.findByDoctorCurrent(d_2)) {
             System.out.println(patient.toString());
-        }
+        }*/
     }
 }
