@@ -58,11 +58,11 @@ public class ConsoleRunner implements CommandLineRunner {
             System.out.println(patient.toString());
         }
 
-        for (Patient patient: patientService.findByDoctorAndDischargeDateIsNull(d_1)) {
+        for (Patient patient: patientService.findByDoctorCurrent(d_1)) {
             System.out.println(patient.toString());
         }
 
-        for (Patient patient: patientService.findByDoctorAndDischargeDateIsNull(d_2)) {
+        for (Patient patient: patientService.findByDoctorCurrent(d_2)) {
             System.out.println(patient.toString());
         }
     }

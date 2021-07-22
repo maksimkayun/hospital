@@ -56,12 +56,12 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<Patient> findByDoctorAndDischargeDateIsNull(Doctor doctor) {
+    public List<Patient> findByDoctorCurrent(Doctor doctor) {
         return patientRepository.findByDoctorAndDischargeDateIsNull(doctor);
     }
 
     @Override
-    public List<Patient> findByDoctorAndDischargeDateNotNull(Doctor doctor) {
+    public List<Patient> findByDoctorDischarged(Doctor doctor) {
         return patientRepository.findByDoctorAndDischargeDateNotNull(doctor);
     }
 }
