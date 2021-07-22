@@ -42,4 +42,9 @@ public class PatientController {
     List<Patient> findByDoctorCurrent(@PathVariable Integer id) {
         return patientRepository.findByDoctorAndDischargeDateIsNull(doctorRepository.findById(id).get());
     }
+
+    @GetMapping("patients/bydoctor/discharged/{id}")
+    List<Patient> findByDoctorDischarged(@PathVariable Integer id) {
+        return patientRepository.findByDoctorAndDischargeDateNotNull(doctorRepository.findById(id).get());
+    }
 }

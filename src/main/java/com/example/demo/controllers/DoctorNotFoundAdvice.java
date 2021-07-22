@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class PatientNotFoundAdvice {
+public class DoctorNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(PatientNotFoundException.class)
+    @ExceptionHandler(DoctorNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String patientNotFoundHandler(PatientNotFoundException ex) {
+    String doctorNotFoundHandler(DoctorNotFoundException ex) {
         return ex.getMessage();
     }
 }
