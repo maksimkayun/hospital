@@ -5,8 +5,6 @@ import com.example.demo.repositories.DoctorRepository;
 import com.example.demo.repositories.PatientRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 public class PatientController {
     private final PatientRepository patientRepository;
@@ -34,17 +32,17 @@ public class PatientController {
     }
 
     @GetMapping("patients/bydoctor/{id}")
-    List<Patient> findByDoctor(@PathVariable Integer id) {
+    Iterable<Patient> findByDoctor(@PathVariable Integer id) {
         return patientRepository.findByDoctor(doctorRepository.findById(id).get());
     }
 
     @GetMapping("patients/bydoctor/current/{id}")
-    List<Patient> findByDoctorCurrent(@PathVariable Integer id) {
+    Iterable<Patient> findByDoctorCurrent(@PathVariable Integer id) {
         return patientRepository.findByDoctorAndDischargeDateIsNull(doctorRepository.findById(id).get());
     }
 
     @GetMapping("patients/bydoctor/discharged/{id}")
-    List<Patient> findByDoctorDischarged(@PathVariable Integer id) {
+    Iterable<Patient> findByDoctorDischarged(@PathVariable Integer id) {
         return patientRepository.findByDoctorAndDischargeDateNotNull(doctorRepository.findById(id).get());
     }
 }
